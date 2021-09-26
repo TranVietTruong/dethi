@@ -44,7 +44,7 @@
   </v-menu>
 </template>
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from 'Vuex'
 export default {
   data () {
     return {

@@ -1,11 +1,17 @@
 <template>
-  <h1>Đang login</h1>
+  <v-overlay>
+    <v-progress-circular
+      indeterminate
+      size="64"
+    ></v-progress-circular>
+  </v-overlay>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from 'Vuex'
 export default {
   middleware: ['isAuth', 'matchRoute'],
+  layout: 'empty',
   data () {
     return {
       provider: this.$route.params.provider,

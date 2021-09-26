@@ -51,13 +51,30 @@ export const actions = {
     }
     await this.$axios.$get('/auth/me', config).then((result) => {
       vuexContext.commit('setUser', result.data)
-      this.$axios.defaults.headers.common.Authorization = 'Bearer ' + params.access_token
+
+      this.$axios.onRequest((config) => {
+        config.headers.common.Authorization = 'Bearer ' + params.access_token
+      })
+
       this.$cookies.set('access_token', params.access_token)
     }).catch(() => {
       vuexContext.commit('setUser', null)
       vuexContext.commit('setToken', null)
       this.$axios.defaults.headers.common.Authorization = null
       this.$cookies.remove('access_token')
+    })
+  },
+  async logout (vuexContext) {
+    await this.$axios.$get('/auth/logout').then((result) => {
+      vuexContext.commit('setToken', null)
+      vuexContext.commit('setUser', null)
+
+      this.$axios.onRequest((config) => {
+        config.headers.common.Authorization = null
+      })
+
+      this.$cookies.remove('access_token')
+      this.$router.push({ path: '/' })
     })
   }
 }

@@ -43,22 +43,33 @@
               </v-row>
             </v-card-text>
 
-            <v-card-actions>
-              <v-row class="pr-1 pl-1" align="center" justify="space-around">
-                <v-btn width="50%" text x-small outlined color="deep-orange">
-                  <v-icon small left>
-                    mdi-heart-outline
-                  </v-icon>
-                  like
-                </v-btn>
+            <v-card-actions class="d-flex justify-space-between">
+              <v-btn
+                text
+                width="47%"
+                height="25"
+                x-small
+                outlined
+                color="deep-orange"
+              >
+                <v-icon small left>
+                  mdi-heart-outline
+                </v-icon>
+                like
+              </v-btn>
 
-                <v-btn width="50%" text x-small outlined color="primary">
-                  <v-icon small left>
-                    mdi-facebook
-                  </v-icon>
-                  share
-                </v-btn>
-              </v-row>
+              <v-btn
+                text
+                x-small
+                height="25"
+                outlined
+                color="primary"
+              >
+                <v-icon small left>
+                  mdi-facebook
+                </v-icon>
+                share
+              </v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -107,22 +118,33 @@
               </v-row>
             </v-card-text>
 
-            <v-card-actions>
-              <v-row class="pr-1 pl-1" align="center" justify="space-around">
-                <v-btn width="50%" text x-small outlined color="deep-orange">
-                  <v-icon small left>
-                    mdi-heart-outline
-                  </v-icon>
-                  like
-                </v-btn>
+            <v-card-actions class="d-flex justify-space-between">
+              <v-btn
+                text
+                width="47%"
+                height="25"
+                x-small
+                outlined
+                color="deep-orange"
+              >
+                <v-icon small left>
+                  mdi-heart-outline
+                </v-icon>
+                like
+              </v-btn>
 
-                <v-btn width="50%" text x-small outlined color="primary">
-                  <v-icon small left>
-                    mdi-facebook
-                  </v-icon>
-                  share
-                </v-btn>
-              </v-row>
+              <v-btn
+                text
+                x-small
+                height="25"
+                outlined
+                color="primary"
+              >
+                <v-icon small left>
+                  mdi-facebook
+                </v-icon>
+                share
+              </v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -133,6 +155,7 @@
 
 <script>
 export default {
+  layout: 'error',
   methods: {
   }
 }

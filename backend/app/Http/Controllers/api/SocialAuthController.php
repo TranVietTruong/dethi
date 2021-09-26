@@ -14,17 +14,14 @@ class SocialAuthController extends Controller
 
     public function __construct(UserRepository $userRepository)
     {
-        $this->middleware('auth:api', ['except' => ['url', 'callback']]);
-
         $this->userRepository = $userRepository;
     }
 
     public function url($provider)
     {
-        return Response::json([
-            'data' => Socialite::driver($provider)->stateless()->redirect()->getTargetUrl(),
-            'code' => 200
-        ]);
+        $providerUrl = Socialite::driver($provider)->stateless()->redirect()->getTargetUrl();
+        $data = responseData($providerUrl);
+        return Response::json($data, 200);
     }
 
     public function callback($provider)
@@ -51,25 +48,29 @@ class SocialAuthController extends Controller
                 $user = $this->userRepository->save($params);
                 $accessToken = auth()->login($user);
             }
+            $data = responseData($accessToken);
+
             \DB::commit();
-            return Response::json([
-                'data' => $accessToken,
-                'code' => 200
-            ]);
+            return Response::json($data, 200);
         }
         catch(\Exception $exception)
         {
             \DB::rollback();
-            return Response::json([
-                'data' => 'error',
-                'code' => 500
-            ]);
+            $error = responseError();
+            return Response::json($error, 500);
         }
     }
 
     public function me()
     {
         $user = auth()->user();
-        return Response::json(['data' => $user, 'code' => 200]);
+        $data = responseData($user);
+        return Response::json($data, 200);
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return Response::json(responseData(), 200);
     }
 }

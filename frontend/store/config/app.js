@@ -9,10 +9,6 @@ export const state = () => ({
       value: 2
     }
   ],
-  defaultTypeSearch: {
-    text: 'Đề thi',
-    value: 1
-  },
   navigations: [
     {
       name: 'TỔNG QUAN',

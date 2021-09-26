@@ -13,15 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function(){
-    $params = [
-        'name' => 'truong',
-        'password' => '123456',
-        'email123' => 'abc@gmail',
-        'status' => '1'
-    ];
-    $user = new \App\Models\User();
-    $user->fill($params);
-    dd($user);
+    dd(responseData());
 });
 
 Route::post('/drive', [\App\Http\Controllers\DriveController::class,'index']);

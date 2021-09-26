@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-sheet class="pa-5">
+    <v-sheet class="pa-15">
       <h1 class="title mb-2 text-center">TẢI ĐỀ THI LÊN</h1>
       <v-form>
         <v-text-field

@@ -1,7 +1,5 @@
 <template>
   <v-app id="inspire">
-    <NavigationDrawerMenuMobile v-if="isMobile" />
-    <NavigationDrawerSearchMobile v-if="isMobile" />
     <Header v-if="!isMobile" />
     <HeaderMobile v-if="isMobile" />
 
@@ -23,16 +21,12 @@
 </template>
 
 <script>
-import NavigationDrawerMenuMobile from '@/components/mobile/NavigationDrawerMenuMobile'
-import NavigationDrawerSearchMobile from '@/components/mobile/NavigationDrawerSearchMobile'
 import Header from '@/components/Header'
 import Banner from '@/components/Banner'
 import HeaderMobile from '@/components/mobile/HeaderMobile'
 import Footer from '@/components/Footer'
 export default {
   components: {
-    NavigationDrawerMenuMobile,
-    NavigationDrawerSearchMobile,
     Header,
     Banner,
     HeaderMobile,
